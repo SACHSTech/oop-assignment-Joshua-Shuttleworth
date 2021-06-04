@@ -4,10 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 public class Produce extends Item{
+    public static int produceTotal = 0;
     private String lastWater = "never";
     private int[] stockDate = new int[3];
     public Produce(String productName, int productID, double price) {
         super(productName, productID, price);
+        produceTotal++;
     }
     public boolean setLastWater() {
         try{
