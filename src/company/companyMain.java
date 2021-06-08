@@ -2,7 +2,16 @@ package company;
 
 import java.io.*;
 
+/**
+ * Demo project to demonstrate the company class
+ * @author Joshua Shuttleworth
+ */
 public class companyMain {
+
+    /**
+     * Demo project entry point
+     * @param args
+     */
     public static void main(String[] args) {
         // I know Jeff Bezos makes more then that but whatever
         CEO jeff = new CEO("Jeff", "Bezos", 250000.00);
@@ -17,14 +26,21 @@ public class companyMain {
 
         // Main loop
         while(true) {
-            clearScreen();
             try {
+                System.out.print("\033[H\033[2J");  
+                System.out.flush();  
                 run(company);
             } catch(Exception e) {
                 System.out.println(e);
             }
         }
     }
+
+    /**
+     * This is the body of program demonstrates basic functionality of the company class
+     * @param company
+     * @throws IOException
+     */
     public static void run(Company company) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("What kind position are you: ");
@@ -113,8 +129,4 @@ public class companyMain {
         System.out.println("Thanks for being apart of " + company.getCompanyName());
         br.readLine();
     }
-    public static void clearScreen() {  
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
-    }  
 }
